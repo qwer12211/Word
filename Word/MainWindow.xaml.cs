@@ -23,7 +23,7 @@ namespace Word
 
         private void CreateWordDocument_Click(object sender, RoutedEventArgs e)
         {
-            OpenRedactorWindow();
+            OpenWordWindow();
         }
 
         private void OpenWordDocument_Click(object sender, RoutedEventArgs e)
@@ -35,18 +35,18 @@ namespace Word
 
             if (openFileDialog.ShowDialog() == true)
             {
-                OpenRedactorWindow(openFileDialog.FileName);
+                OpenWordWindow(openFileDialog.FileName);
             }
         }
 
-        private void OpenRedactorWindow(string filePath = null)
+        private void OpenWordWindow(string filePath = null)
         {
-            Redactor redactor = new Redactor();
+            WordWindow wordWindow = new WordWindow();
             if (filePath != null)
             {
-                redactor.LoadFile(filePath);
+                wordWindow.LoadFile(filePath);
             }
-            redactor.Show();
+            wordWindow.Show();
             this.Close();
         }
     }
